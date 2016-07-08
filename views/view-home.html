@@ -1,0 +1,98 @@
+﻿<div class="container ng-scope" ng-app="sortApp" >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <form class="ng-pristine ng-valid">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" placeholder="Rechercher" ng-model="searchFish">
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <td>
+                    <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                        Bénéficiaire
+                        <span ng-show="sortType == 'name' &amp;&amp; !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'name' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'Status'; sortReverse = !sortReverse">
+                        Status
+                        <span ng-show="sortType == 'Status' &amp;&amp; !sortReverse" class="fa fa-caret-down ng-hide"></span>
+                        <span ng-show="sortType == 'Status' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                        Taste Level
+                        <span ng-show="sortType == 'tastiness' &amp;&amp; !sortReverse" class="fa fa-caret-down ng-hide"></span>
+                        <span ng-show="sortType == 'tastiness' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'CouponsSouper'; sortReverse = !sortReverse">
+                        Coupons Souper
+                        <span ng-show="sortType == 'CouponsSouper' &amp;&amp; !sortReverse" class="fa fa-caret-down ng-hide"></span>
+                        <span ng-show="sortType == 'CouponsSouper' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'CouponsSoupe'; sortReverse = !sortReverse">
+                        Coupons Soupe
+                        <span ng-show="sortType == 'CouponsSoupe' &amp;&amp; !sortReverse" class="fa fa-caret-down ng-hide"></span>
+                        <span ng-show="sortType == 'CouponsSoupe' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'CouponsBus'; sortReverse = !sortReverse">
+                        Coupons Bus
+                        <span ng-show="sortType == 'CouponsBus' &amp;&amp; !sortReverse" class="fa fa-caret-down ng-hide"></span>
+                        <span ng-show="sortType == 'CouponsBus' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'CouponsTaxi'; sortReverse = !sortReverse">
+                        Coupons Taxi
+                        <span ng-show="sortType == 'CouponsTaxi' &amp;&amp; !sortReverse" class="fa fa-caret-down ng-hide"></span>
+                        <span ng-show="sortType == 'CouponsTaxi' &amp;&amp; sortReverse" class="fa fa-caret-up ng-hide"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'CouponsTaxi'; sortReverse = !sortReverse">
+                        Save
+
+                    </a>
+                </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            <!-- ngRepeat: roll in sushi | orderBy:sortType:sortReverse | filter:searchFish -->
+            <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish">
+                <td><a href="1.html">{{ roll.name }}</a></td>
+                <td>{{ roll.Status }}</td>
+                <td>{{ roll.tastiness }}</td>
+                <td><input type="number" value="{{ roll.CouponsTaxi}}" /></td>
+                <td><input type="number" value="{{ roll.CouponsBus}}" /></td>
+                <td><input type="number" value="{{ roll.CouponsSoupe}}" /></td>
+                <td><input type="text" value="{{ roll.CouponsSouper}}$" /></td>
+                <td><a href="#"><i class="glyphicon glyphicon-save"></i></a></td>
+            </tr>
+            
+        </tbody>
+
+    </table>
+
+   
+    
+
+</div>
